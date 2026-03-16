@@ -13,7 +13,7 @@ const Header = ({setshowmodal,code,setoutput,currentfile,setshowmodal2}) => {
           return;
         }
         try{
-    const response = await fetch('http://localhost:8080/api/handlecode/saveCode/', {
+    const response = await fetch('https://pythoncodeeditor-48vl.onrender.com/api/handlecode/saveCode/', {
         method:'POST', // Use uppercase 'POST' (convention)
         headers: {
             'Content-Type': 'application/json'
@@ -49,7 +49,7 @@ const Header = ({setshowmodal,code,setoutput,currentfile,setshowmodal2}) => {
        const username=localStorage.getItem('user');
         const jsonusername=JSON.parse(username)
          try {
-           const response = await fetch('http://localhost:8080/api/handlecode/saveCode/', {
+           const response = await fetch('https://pythoncodeeditor-48vl.onrender.com/api/handlecode/saveCode/', {
         method:'POST', // Use uppercase 'POST' (convention)
         headers: {
             'Content-Type': 'application/json'
