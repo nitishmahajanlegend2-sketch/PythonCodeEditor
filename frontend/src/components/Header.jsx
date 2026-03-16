@@ -39,7 +39,7 @@ const Header = ({setshowmodal,code,setoutput,currentfile,setshowmodal2}) => {
 
   }
   else{
-    setoutput(coderesult['stdout'].trim());
+    setoutput(coderesult['stdout']);
   }}
   catch(err){
     console.log("Error in getting output",err)
