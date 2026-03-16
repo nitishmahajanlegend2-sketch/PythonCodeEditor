@@ -16,7 +16,7 @@ export const Filelist=(props)=>{
         var username=localStorage.getItem('user');
         var jsonusername=JSON.parse(username)
           try {
-           const response = await fetch('http://localhost:8080/api/handlecode/getallfilenames/', {
+           const response = await fetch('https://pythoncodeeditor-48vl.onrender.com/api/handlecode/getallfilenames/', {
         method:'POST', // Use uppercase 'POST' (convention)
         headers: {
             'Content-Type': 'application/json'
@@ -59,7 +59,7 @@ export const Filelist=(props)=>{
          const username=localStorage.getItem('user');
         const jsonusername=JSON.parse(username)
          try {
-           const response = await fetch('http://localhost:8080/api/handlecode/deletefile/', {
+           const response = await fetch('https://pythoncodeeditor-48vl.onrender.com/api/handlecode/deletefile/', {
         method:'POST', // Use uppercase 'POST' (convention)
         headers: {
             'Content-Type': 'application/json'
