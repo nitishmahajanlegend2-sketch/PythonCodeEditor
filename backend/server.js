@@ -12,7 +12,7 @@ dotenv.config();
 connectDb();
 //middlewares
 app.use(cors({
-    origin:'https://python-code-editor-47am-9lolhq5yn-nitish-mahajans-projects.vercel.app/',
+    origin:'https://python-code-editor-47am.vercel.app/',
     methods:['GET','POST'],
     credentials:true
 }));
