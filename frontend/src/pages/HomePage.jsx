@@ -19,7 +19,7 @@ const HomePage = () => {
   const getcode=async(file)=>{
         const username=localStorage.getItem('user');
         const jsonusername=JSON.parse(username)
-        const response= await fetch('http://localhost:8080/api/handlecode/getfilecode/', {
+        const response= await fetch('https://pythoncodeeditor-48vl.onrender.com/api/handlecode/getfilecode/', {
           method:'POST',
         // Use uppercase 'POST' (convention)
         headers: {
