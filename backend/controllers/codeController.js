@@ -44,7 +44,7 @@ const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY });
         console.log("this is code",codedoc)
         await codedoc.save();
         console.log("After saving")
-         const response = await axios.post('https://pythoncodeeditor-2.onrender.com/execute', {
+         const response = await axios.post('https://pythoncodeeditor-3.onrender.com/execute', {
             code:codedoc.code
         });
 
@@ -88,7 +88,7 @@ const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY });
             await codeModel.updateOne({username,filename},{code});
             // Forward the code to the Python microservice
            // console.log("Reached here")
-        const response = await axios.post('https://pythoncodeeditor-2.onrender.com/execute', {
+        const response = await axios.post('https://pythoncodeeditor-3.onrender.com/execute', {
             code:code
         });
         console.log(response)
