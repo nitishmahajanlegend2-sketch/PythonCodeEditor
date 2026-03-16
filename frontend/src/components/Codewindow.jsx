@@ -8,7 +8,7 @@ const Codewindow=({code,setcode,showmodal,setshowmodal,change,setchange,showmoda
    const getcode=async(file)=>{
         const username=localStorage.getItem('user');
         const jsonusername=JSON.parse(username)
-        const response= await fetch('http://localhost:8080/api/handlecode/getfilecode/', {
+        const response= await fetch('https://pythoncodeeditor-48vl.onrender.com/api/handlecode/getfilecode/', {
           method:'POST',
         // Use uppercase 'POST' (convention)
         headers: {
@@ -31,7 +31,7 @@ const Codewindow=({code,setcode,showmodal,setshowmodal,change,setchange,showmoda
        
       
          try {
-           const response = await fetch('http://localhost:8080/api/handlecode/saveCode/', {
+           const response = await fetch('https://pythoncodeeditor-48vl.onrender.com/api/handlecode/saveCode/', {
         method:'POST', // Use uppercase 'POST' (convention)
         headers: {
             'Content-Type': 'application/json'
@@ -65,7 +65,7 @@ const GenerateCode=async()=>{
   const jsonusername=JSON.parse(username)
   setshowmodal2(false);
   try {
-    const response = await fetch('http://localhost:8080/api/handlecode/generatecode/', {
+    const response = await fetch('https://pythoncodeeditor-48vl.onrender.com/api/handlecode/generatecode/', {
       method:'POST', // Use uppercase 'POST' (convention)
         headers: {
             'Content-Type': 'application/json'
