@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import Editor from "@monaco-editor/react";
-import Filelist from './filelist';
+import Filelist from './Filelist';
 const Codewindow=({code,setcode,showmodal,setshowmodal,change,setchange,showmodal2,setshowmodal2})=>{
     const [newFileName, setNewFileName] = useState('');
     const [prompt, setPrompt] = useState('');
