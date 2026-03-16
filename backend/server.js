@@ -11,7 +11,11 @@ const connectDb = require('./config/connectDb');
 dotenv.config();
 connectDb();
 //middlewares
-app.use(cors());
+app.use(cors({
+    origin:'https://python-code-editor-47am-9lolhq5yn-nitish-mahajans-projects.vercel.app/',
+    methods:['GET','POST'],
+    credentials:true
+}));
 app.use(morgan('dev'))
 app.use(express.json())
 express.urlencoded({extended:true})
