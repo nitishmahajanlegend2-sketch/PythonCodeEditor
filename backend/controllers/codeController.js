@@ -155,7 +155,13 @@ const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY });
         res.status(500).json({ error: "Failed to generate code" });}
     }
 const updateandrun2=async(req,res)=>{
-        const code = req.body.code;
+    const {username,filename,code}=req.body;
+        //const code = req.body.code;
+    const codedoc=codeModel.find({username,filename});
+            if(!codedoc){
+                res.status(404).json({message:'Code not found'})
+            }
+            await codeModel.updateOne({username,filename},{code});
 
     if (!code) {
         return res.status(400).send({ error: 'No code provided' });
