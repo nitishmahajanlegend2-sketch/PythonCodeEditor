@@ -87,10 +87,11 @@ const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY });
             }
             await codeModel.updateOne({username,filename},{code});
             // Forward the code to the Python microservice
-           // console.log("Reached here")
+            console.log("Reached here")
         const response = await axios.post('https://pythoncodeeditor-3.onrender.com/execute', {
             code:code
         });
+            console.log("Reached there")
         console.log(response)
 
         // Send Python's response back to your React frontend
