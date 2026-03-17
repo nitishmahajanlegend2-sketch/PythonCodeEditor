@@ -35,7 +35,7 @@ const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY });
         const check=await codeModel.find({username,filename})
         console.log("This is not check",check)
         if(check.length!=0){
-             updateandrun(req,res);
+             updateandrun2(req,res);
         
        }
        else{
@@ -44,6 +44,8 @@ const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY });
         console.log("this is code",codedoc)
         await codedoc.save();
         console.log("After saving")
+           updateandrun2(req,res)
+           /**
          const response = await axios.post('https://pythoncodeeditor-3.onrender.com/execute', {
             code:codedoc.code
         });
@@ -151,6 +153,42 @@ const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY });
         console.error("Gemini Error:", error);
         res.status(500).json({ error: "Failed to generate code" });}
     }
+const updateandrun2=async(req,res)=>{
+        const code = req.body.code;
+
+    if (!code) {
+        return res.status(400).send({ error: 'No code provided' });
+    }
+
+    // 1. Start the python process in "interactive" mode (-) 
+    // The '-' tells Python to read from stdin
+    const pythonProcess = spawn('python', ['-c', code]);
+
+    let output = '';
+    let errorOutput = '';
+
+    // 2. Capture the results
+    pythonProcess.stdout.on('data', (data) => {
+        output += data.toString();
+    });
+
+    // 3. Capture any errors
+    pythonProcess.stderr.on('data', (data) => {
+        errorOutput += data.toString();
+    });
+
+    // 4. Handle the end of the execution
+    pythonProcess.on('close', (code) => {
+        if (code !== 0 || errorOutput) {
+            return res.json({ 
+                success: false, 
+                stderr: errorOutput || `Process exited with code ${code}` 
+            });
+        }
+        res.json({ success: true, stdout: output });
+    });
+};
+    
 
 
         
